@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 50" width="880" height="50" role="img">
+<title>05 / cat stack.json</title>
+
+<rect x=".5" y=".5" width="879" height="49" rx="10" fill="#11131b" stroke="#23273a"/>
+<rect x="0" y="12" width="4" height="26" rx="2" fill="#a78bfa"/>
+<text x="22" y="31" font-family="'JetBrains Mono','Cascadia Code',Consolas,'SF Mono',Menlo,monospace" font-size="13" font-weight="700" fill="#a78bfa" text-anchor="start" >05</text>
+<text x="52" y="31" font-family="'JetBrains Mono','Cascadia Code',Consolas,'SF Mono',Menlo,monospace" font-size="15"><tspan fill="#4ade80">pedro@github</tspan><tspan fill="#7d8197">:</tspan><tspan fill="#22d3ee">~</tspan><tspan fill="#7d8197">$ </tspan><tspan fill="#e6e7ee" font-weight="700">cat stack.json</tspan></text>
+<rect x="327.5" y="18" width="9" height="17" fill="#a78bfa"><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;.5;.5;1" dur="1.1s" repeatCount="indefinite"/></rect>
+<text x="858" y="30" font-family="'JetBrains Mono','Cascadia Code',Consolas,'SF Mono',Menlo,monospace" font-size="11" font-weight="400" fill="#7d8197" text-anchor="end" letter-spacing="2">TECNOLOGIAS</text>
+
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 230" width="430" height="230" role="img">
+<title>Hackathon COBOL: Sistema financeiro batch da Stefanini: geração de dados, transações, validação, logs, extratos e saída em JSON.</title>
+<defs><linearGradient id="t" x1="0" x2="1"><stop offset="0" stop-color="#fb923c" stop-opacity="0"/><stop offset=".5" stop-color="#fb923c"/><stop offset="1" stop-color="#fb923c" stop-opacity="0"/></linearGradient>
+<clipPath id="c"><rect width="430" height="230" rx="12"/></clipPath>
+<radialGradient id="gl" cx="1" cy="0" r=".9"><stop offset="0" stop-color="#fb923c" stop-opacity=".16"/><stop offset="1" stop-color="#fb923c" stop-opacity="0"/></radialGradient></defs>
+<rect x=".5" y=".5" width="429" height="229" rx="12" fill="#11131b" stroke="#23273a"/>
+<rect width="430" height="230" rx="12" fill="url(#gl)"/>
+<g clip-path="url(#c)"><rect x="-160" y="0" width="160" height="3" fill="url(#t)"><animate attributeName="x" values="-160;430;430" keyTimes="0;.6;1" dur="4s" repeatCount="indefinite"/></rect></g>
+<text x="24" y="36" font-family="'JetBrains Mono','Cascadia Code',Consolas,'SF Mono',Menlo,monospace" font-size="11" font-weight="700" fill="#fb923c" text-anchor="start" letter-spacing="2.5">MAINFRAME · BATCH</text>
+<text x="24" y="70" font-family="'Segoe UI',Inter,Roboto,'Helvetica Neue',Arial,sans-serif" font-size="25" font-weight="800" fill="#e6e7ee" text-anchor="start" >Hackathon COBOL</text>
+<rect x="329.6" y="20" width="76.4" height="22" rx="11" fill="#4ade80" fill-opacity=".12" stroke="#4ade80" stroke-opacity=".5"/>
+<circle cx="341.6" cy="31" r="3.5" fill="#4ade80"><animate attributeName="opacity" values="1;.3;1" dur="1.6s" repeatCount="indefinite"/></circle>
+<text x="373.8" y="35" font-family="'JetBrains Mono','Cascadia Code',Consolas,'SF Mono',Menlo,monospace" font-size="10.5" font-weight="700" fill="#4ade80" text-anchor="middle" letter-spacing="1">PÚBLICO</text>
+<text x="24" y="100" font-family="'Segoe UI',Inter,Roboto,'Helvetica Neue',Arial,sans-serif" font-size="14.5" font-weight="400" fill="#b9bccb" text-anchor="start" >Sistema financeiro batch da Stefanini: geração de</text>
+<text x="24" y="122" font-family="'Segoe UI',Inter,Roboto,'Helvetica Neue',Arial,sans-serif" font-size="14.5" font-weight="400" fill="#b9bccb" text-anchor="start" >dados, transações, validação, logs, extratos e</text>
+<text x="24" y="144" font-family="'Segoe UI',Inter,Roboto,'Helvetica Neue',Arial,sans-serif" font-size="14.5" font-weight="400" fill="#b9bccb" text-anchor="start" >saída em JSON.</text>
+<rect x="24" y="186" width="54" height="24" rx="12" fill="#fb923c" fill-opacity=".12" stroke="#fb923c" stroke-opacity=".45"/><text x="51.0" y="202.5" font-family="'JetBrains Mono','Cascadia Code',Consolas,'SF Mono',Menlo,monospace" font-size="11" font-weight="600" fill="#fb923c" text-anchor="middle" >COBOL</text><rect x="85" y="186" width="74" height="24" rx="12" fill="#fb923c" fill-opacity=".12" stroke="#fb923c" stroke-opacity=".45"/><text x="122.0" y="202.5" font-family="'JetBrains Mono','Cascadia Code',Consolas,'SF Mono',Menlo,monospace" font-size="11" font-weight="600" fill="#fb923c" text-anchor="middle" >GnuCOBOL</text><rect x="166" y="186" width="54" height="24" rx="12" fill="#fb923c" fill-opacity=".12" stroke="#fb923c" stroke-opacity=".45"/><text x="193.0" y="202.5" font-family="'JetBrains Mono','Cascadia Code',Consolas,'SF Mono',Menlo,monospace" font-size="11" font-weight="600" fill="#fb923c" text-anchor="middle" >Linux</text>
+</svg>

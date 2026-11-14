@@ -1,131 +1,94 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,50:6D28D9,100:0A66C2&height=200&section=header&text=Pedro%20Dutra&fontSize=52&fontColor=ffffff&fontAlignY=36&desc=Ci%C3%AAncia%20da%20Computa%C3%A7%C3%A3o%20%C2%B7%20IDP%20%C2%B7%20Bras%C3%ADlia&descAlignY=58&descSize=18&animation=fadeIn" width="100%" alt="Pedro Dutra"/>
-
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=21&pause=1100&color=A78BFA&center=true&vCenter=true&width=640&lines=Estagi%C3%A1rio+de+Software+no+SENAI;Apps+mobile+com+React+Native+e+Expo;Backend+com+Python+e+FastAPI;Machine+Learning+e+dados;COBOL+e+Mainframe;%F0%9F%A5%88+2%C2%BA+lugar+no+Hackathon+PMI-DF+2026" alt="O que eu faço"/></a>
+<img src="profile/header.svg" width="100%" alt="Pedro Dutra — Ciência da Computação no IDP e Dev de Software no SENAI" />
 
 <br/>
 
-<a href="https://www.linkedin.com/in/pedro-pereira-dutra-0a2369322/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
-<a href="https://github.com/dutrapedro06/dutrapedro06/raw/main/curriculo-pedro-dutra.pdf"><img src="https://img.shields.io/badge/Baixar%20currículo-PDF-22C55E?style=for-the-badge&logo=readdotcv&logoColor=white" alt="Baixar currículo"/></a>
-<img src="https://komarev.com/ghpvc/?username=dutrapedro06&style=for-the-badge&color=6D28D9&label=VISITAS" alt="Visitas"/>
+<a href="https://www.linkedin.com/in/pedro-pereira-dutra-0a2369322/"><img src="https://img.shields.io/badge/LINKEDIN-11131b?style=for-the-badge&logo=linkedin&logoColor=a78bfa" alt="LinkedIn" /></a>
+<a href="https://github.com/dutrapedro06/dutrapedro06/raw/main/curriculo-pedro-dutra.pdf"><img src="https://img.shields.io/badge/BAIXAR%20CURRÍCULO-a78bfa?style=for-the-badge&logo=readdotcv&logoColor=0a0b10" alt="Baixar currículo em PDF" /></a>
+<a href="https://github.com/dutrapedro06/krilltech"><img src="https://img.shields.io/badge/KRILL%20RADAR-11131b?style=for-the-badge&logo=github&logoColor=22d3ee" alt="Projeto Krill Radar" /></a>
 
 </div>
 
----
+## <img src="profile/title-about.svg" width="880" alt="01 / Sobre" />
 
-## 👋 Sobre mim
+<p align="center">
+  <img src="profile/about-card.svg" width="880" alt="Estudante do 6º semestre de Ciência da Computação no IDP e estagiário em Desenvolvimento de Software no SENAI. Constrói produtos de ponta a ponta, do app à API e aos dados." />
+</p>
 
-Sou **Pedro Pereira Dutra**, estudante do 6º semestre de **Ciência da Computação no IDP**, em Brasília, e **estagiário em Desenvolvimento de Software no SENAI — Departamento Nacional**. Gosto de construir **produtos de ponta a ponta**: apps mobile com **React Native e TypeScript**, backends em **Python/FastAPI** e serverless, e a camada de dados por trás deles. Também transito por **machine learning**, **COBOL/mainframe** e **algoritmos em C/C++**.
+## <img src="profile/title-wins.svg" width="880" alt="02 / Conquistas" />
 
-- 🥈 **2º lugar no Hackathon PMI-DF 2026** com o Krill Radar, IA para risco de crédito no agronegócio
-- 🏦 Participei do **Hackathon COBOL da Stefanini**, com um sistema financeiro batch completo
-- 🌎 Inglês avançado (C1)
-- ⚡ **460+ commits em 2026**, entre projetos acadêmicos, pessoais e de trabalho
+<p align="center">
+  <img src="profile/achievements.svg" width="880" alt="1º lugar Melhor Pitch e Projeto (IDP, 2024), 2º lugar no Hackathon PMI-DF 2026 e Hackathon COBOL da Stefanini" />
+</p>
 
----
+## <img src="profile/title-projects.svg" width="880" alt="03 / Projetos em destaque" />
 
-## 📊 Minha atividade no GitHub
+<p align="center">
+  <a href="https://github.com/dutrapedro06/krilltech"><img src="profile/project-krill.svg" width="49%" alt="Krill Radar" /></a>
+  <a href="https://github.com/dutrapedro06/LegixTech"><img src="profile/project-legix.svg" width="49%" alt="LegixTech" /></a>
+  <a href="https://github.com/dutrapedro06/Machine-Learning"><img src="profile/project-ml.svg" width="49%" alt="Machine Learning" /></a>
+  <a href="https://github.com/dutrapedro06/HackatonCobol"><img src="profile/project-cobol.svg" width="49%" alt="Hackathon COBOL" /></a>
+  <a href="https://github.com/dutrapedro06/Compiladores"><img src="profile/project-compiladores.svg" width="49%" alt="Compiladores" /></a>
+  <a href="https://github.com/dutrapedro06/TAA"><img src="profile/project-taa.svg" width="49%" alt="TAA" /></a>
+</p>
 
-<div align="center">
+## <img src="profile/title-building.svg" width="880" alt="04 / Em construção" />
 
-<img src="https://raw.githubusercontent.com/dutrapedro06/dutrapedro06/main/profile-3d-contrib/profile-night-green.svg" width="100%" alt="Contribuições em 3D, linguagens e tipos de atividade"/>
+<p align="center">
+  <img src="profile/project-bolacheia.svg" width="49%" alt="Bola Cheia: agendamento de quadras society" />
+  <img src="profile/project-financas.svg" width="49%" alt="Gestão Financeira" />
+  <img src="profile/project-receitas.svg" width="49%" alt="Receitas" />
+  <img src="profile/project-akto.svg" width="49%" alt="Akto" />
+</p>
 
-<br/>
+<p align="center"><sub>🔒 Repositórios privados enquanto estão em desenvolvimento.</sub></p>
 
-<img src="https://streak-stats.demolab.com?user=dutrapedro06&theme=tokyonight&hide_border=true&locale=pt_BR&background=0D1117" width="70%" alt="Sequência de contribuições"/>
+## <img src="profile/title-stack.svg" width="880" alt="05 / Tecnologias" />
 
-</div>
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=ts,py,js,c,cpp,java,react,nodejs,fastapi,flask,htmx,postgres,supabase,sqlite,sklearn,docker,git,github,githubactions,linux,vercel,cloudflare,vscode,figma&theme=dark&perline=12" alt="TypeScript, Python, JavaScript, C, C++, Java, React Native, Node.js, FastAPI, Flask, HTMX, PostgreSQL, Supabase, SQLite, scikit-learn, Docker, Git, GitHub, GitHub Actions, Linux, Vercel, Cloudflare, VS Code e Figma" />
+</p>
 
----
+◆ **LINGUAGENS**<br>
+<kbd>TypeScript</kbd> <kbd>Python</kbd> <kbd>JavaScript</kbd> <kbd>C</kbd> <kbd>C++</kbd> <kbd>Java</kbd> <kbd>COBOL</kbd> <kbd>SQL</kbd>
 
-## 💼 Experiência
+◆ **MOBILE E WEB**<br>
+<kbd>React Native</kbd> <kbd>Expo</kbd> <kbd>HTMX</kbd> <kbd>Tailwind</kbd> <kbd>PWA</kbd>
 
-**Estagiário em Desenvolvimento de Software · SENAI — Departamento Nacional** · ago/2026 – atual<br/>
-Automação de processos com Python, integração de sistemas via APIs, pipelines ETL e dashboards no Power BI para acompanhamento de indicadores, além de ferramentas internas para otimizar processos educacionais.
+◆ **BACKEND E BANCO DE DADOS**<br>
+<kbd>FastAPI</kbd> <kbd>Flask</kbd> <kbd>Hono</kbd> <kbd>SQLAlchemy</kbd> <kbd>PostgreSQL</kbd> <kbd>Supabase</kbd> <kbd>Cloudflare Workers</kbd>
 
----
+◆ **DADOS E IA**<br>
+<kbd>Pandas</kbd> <kbd>NumPy</kbd> <kbd>scikit-learn</kbd> <kbd>XGBoost</kbd> <kbd>Jupyter</kbd> <kbd>Power BI</kbd> <kbd>Excel</kbd> <kbd>ETL</kbd>
 
-## 🏆 Conquistas
+◆ **FERRAMENTAS**<br>
+<kbd>Git</kbd> <kbd>GitHub</kbd> <kbd>GitHub Actions</kbd> <kbd>Docker</kbd> <kbd>Linux</kbd> <kbd>WSL</kbd> <kbd>Playwright</kbd> <kbd>Vercel</kbd>
 
-| | |
-|:-:|---|
-| 🥇 | **1º lugar — Melhor Pitch e Projeto** (IDP, 2024) com a startup WoofGo, + 1 ano no programa de incubação |
-| 🥈 | **2º lugar — Hackathon PMI-DF 2026** com o Krill Radar |
-| 🥉 | **3º lugar — Demoday IDP** (2024) |
-| 🏅 | **4º lugar — Demoday IDP** (2025) |
+## <img src="profile/title-stats.svg" width="880" alt="06 / Atividade" />
 
----
+<p align="center">
+  <img src="profile/stats.svg" width="880" alt="Estatísticas do GitHub, incluindo repositórios privados" />
+</p>
+<p align="center">
+  <img src="profile/langs.svg" width="880" alt="Linguagens mais usadas" />
+</p>
+<p align="center">
+  <img src="profile/heatmap.svg" width="880" alt="Contribuições no último ano" />
+</p>
 
-## 🛠️ Tecnologias e ferramentas
-
-**Linguagens**
-
-<img src="https://skillicons.dev/icons?i=ts,py,js,c,cpp,java,html,css&theme=dark" alt="Linguagens"/>
-<img src="https://img.shields.io/badge/COBOL-005CA5?style=for-the-badge&logo=ibm&logoColor=white" height="48" alt="COBOL"/>
-
-**Mobile, web e backend**
-
-<img src="https://skillicons.dev/icons?i=react,nodejs,fastapi,flask,htmx,tailwind&theme=dark" alt="Frameworks"/>
-<img src="https://img.shields.io/badge/Expo-000020?style=for-the-badge&logo=expo&logoColor=white" height="48" alt="Expo"/>
-<img src="https://img.shields.io/badge/Hono-E36002?style=for-the-badge&logo=hono&logoColor=white" height="48" alt="Hono"/>
-
-**Dados, IA e bancos**
-
-<img src="https://skillicons.dev/icons?i=postgres,sqlite,supabase,sklearn&theme=dark" alt="Dados"/>
-<img src="https://img.shields.io/badge/SQL-336791?style=for-the-badge&logo=postgresql&logoColor=white" height="48" alt="SQL"/>
-<img src="https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black" height="48" alt="Power BI"/>
-<img src="https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoftexcel&logoColor=white" height="48" alt="Excel"/>
-<img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" height="48" alt="Pandas"/>
-<img src="https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white" height="48" alt="Jupyter"/>
-
-**DevOps, nuvem e ferramentas**
-
-<img src="https://skillicons.dev/icons?i=git,github,githubactions,docker,linux,ubuntu,vercel,cloudflare,vscode,figma&theme=dark" alt="Ferramentas"/>
-<img src="https://img.shields.io/badge/WSL-0078D4?style=for-the-badge&logo=linux&logoColor=white" height="48" alt="WSL"/>
-<img src="https://img.shields.io/badge/Playwright-2EAD33?style=for-the-badge&logo=playwright&logoColor=white" height="48" alt="Playwright"/>
-
----
-
-## 🚀 Projetos em destaque
-
-| | Projeto | O que é | Stack |
-|:-:|---|---|---|
-| 🌾 | **[Krill Radar](https://github.com/dutrapedro06/krilltech)** | Protótipo que cruza dados de várias fontes e calcula indicadores de risco de crédito no agronegócio. **🥈 2º lugar no Hackathon PMI-DF 2026.** | JavaScript · Node · IA |
-| ⚖️ | **[LegixTech](https://github.com/dutrapedro06/LegixTech)** | App de monitoramento legislativo: classifica projetos de lei por ODS (com fallback no Gemini) e gera resumos em linguagem simples. | FastAPI · PostgreSQL · React Native |
-| 🤖 | **[Machine Learning](https://github.com/dutrapedro06/Machine-Learning)** | Classificação, regressão e clusterização com otimização em cascata, além de uma API Flask em Docker para prever a qualidade do ar. | Python · scikit-learn · XGBoost · Docker |
-| 🏦 | **[Hackathon COBOL](https://github.com/dutrapedro06/HackatonCobol)** | Sistema financeiro batch: geração de dados, processamento de transações, validação, logs, extratos e saída em JSON. | COBOL · GnuCOBOL |
-| 🛠️ | **[Compiladores](https://github.com/dutrapedro06/Compiladores)** | Construção das etapas de um compilador, começando por um analisador léxico para a linguagem MiniC. | C · C++ |
-| 🧮 | **[TAA](https://github.com/dutrapedro06/TAA)** | Algoritmos e estruturas de dados: grafos, ordenação, recursão, bitwise e programação competitiva. | C · C++ |
-
-### 🔒 Em desenvolvimento
-
-| | Projeto | O que é | Stack |
-|:-:|---|---|---|
-| ⚽ | **Bola Cheia** | Sistema de agendamento de quadras e campos society, em PWA: o jogador reserva em poucos toques e o dono gerencia horários, preços e agenda, trocando o controle feito hoje pelo WhatsApp. Em validação com uma quadra de Brasília. | PWA · HTML · CSS · JavaScript |
-| 💰 | **Gestão Financeira** | Finanças pessoais para uso diário: lançamento rápido pelo celular, dashboard e projeções, importação de extratos OFX, testes e CI. | FastAPI · SQLAlchemy · PostgreSQL · HTMX · Plotly · Docker |
-| 🍳 | **Receitas** | App e site para guardar e compartilhar receitas com fotos e passo a passo, com espaços privados para família e amigos e uma área pública. | Expo · React Native · TypeScript · Supabase |
-| ✅ | **Akto** | App de hábitos, tarefas e eventos, com conjuntos, progresso, lembretes e login com Google. Desenvolvido em dupla. | Expo · React Native · Hono · Cloudflare Workers |
-| 🎓 | **Meu SENAI** | Protótipo de painel pedagógico: turmas, planejamento de aulas, engajamento e acompanhamento de desempenho. | HTML · CSS · JavaScript |
-
----
-
-## 🌱 Estudando agora
-
-- 🤖 Agentes de IA e LLMs aplicados
-- ⚙️ Compiladores
-- 🏗️ Arquitetura de software e processos
-- 📊 Engenharia de dados (ETL) e Power BI
-
----
-
-## 📫 Contato
+## <img src="profile/title-contact.svg" width="880" alt="07 / Contato" />
 
 <div align="center">
 
-<a href="https://www.linkedin.com/in/pedro-pereira-dutra-0a2369322/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
-<a href="https://github.com/dutrapedro06/dutrapedro06/raw/main/curriculo-pedro-dutra.pdf"><img src="https://img.shields.io/badge/Currículo-Download-22C55E?style=for-the-badge&logo=readdotcv&logoColor=white" alt="Currículo"/></a>
+<p><em>Aberto a estágios, projetos e boas conversas sobre tecnologia.</em></p>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0A66C2,50:6D28D9,100:0D1117&height=110&section=footer" width="100%" alt=""/>
+<a href="https://www.linkedin.com/in/pedro-pereira-dutra-0a2369322/">LinkedIn</a> ·
+<a href="https://github.com/dutrapedro06/dutrapedro06/raw/main/curriculo-pedro-dutra.pdf">Currículo (PDF)</a> ·
+<a href="https://github.com/dutrapedro06?tab=repositories">Repositórios</a>
+
+<br/><br/>
+
+<img src="profile/footer.svg" width="100%" alt="Obrigado pela visita" />
 
 </div>

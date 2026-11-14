@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 150" width="1200" height="150" role="img">
+<title>Obrigado pela visita</title>
+
+<defs><linearGradient id="w" x1="0" x2="1"><stop offset="0" stop-color="#7c3aed"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs>
+<path fill="url(#w)" fill-opacity=".18" d="M0 70 C 200 30 400 110 600 70 S 1000 30 1200 70 V150 H0Z">
+  <animate attributeName="d" dur="9s" repeatCount="indefinite" values="M0 70 C 200 30 400 110 600 70 S 1000 30 1200 70 V150 H0Z;M0 80 C 200 110 400 30 600 80 S 1000 110 1200 60 V150 H0Z;M0 70 C 200 30 400 110 600 70 S 1000 30 1200 70 V150 H0Z"/></path>
+<path fill="url(#w)" fill-opacity=".35" d="M0 100 C 250 80 450 130 650 100 S 1000 80 1200 105 V150 H0Z">
+  <animate attributeName="d" dur="7s" repeatCount="indefinite" values="M0 100 C 250 80 450 130 650 100 S 1000 80 1200 105 V150 H0Z;M0 105 C 250 125 450 85 650 108 S 1000 125 1200 95 V150 H0Z;M0 100 C 250 80 450 130 650 100 S 1000 80 1200 105 V150 H0Z"/></path>
+<text x="600" y="34" text-anchor="middle" font-family="'JetBrains Mono','Cascadia Code',Consolas,'SF Mono',Menlo,monospace" font-size="14"><tspan fill="#4ade80">✓</tspan><tspan fill="#7d8197">  build passed · </tspan><tspan fill="#e6e7ee">obrigado pela visita</tspan><tspan fill="#a78bfa"> ▌</tspan></text>
+
+</svg>
