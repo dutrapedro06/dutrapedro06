@@ -19,8 +19,10 @@ USER = os.environ.get("GH_USER", "dutrapedro06")
 
 # Forks que contam como projeto seu (você programou de verdade neles)
 INCLUDE_FORKS = {"LegixTech", "krilltech", "Rede-De-Computadores"}
+# Repositórios de outras pessoas em que você programa e que entram nas linguagens
+EXTRA_REPOS = {"LucasRD3105/Akto"}
 # Linguagens que só fazem barulho no gráfico
-IGNORED_LANGS = {"Jupyter Notebook", "HTML", "CSS", "SCSS", "Dockerfile", "Shell", "Makefile",
+IGNORED_LANGS = {"Jupyter Notebook", "TeX", "HTML", "CSS", "SCSS", "Dockerfile", "Shell", "Makefile",
                  "Procfile", "Batchfile", "PowerShell", "Mako", "PLpgSQL", "TSQL"}
 
 LANG_COLORS = {"TypeScript": "#3178c6", "Python": "#3572A5", "JavaScript": "#f1e05a", "C": "#a8b9cc",
@@ -52,7 +54,7 @@ Q_REPOS = """query($login:String!,$cursor:String){
   user(login:$login){
     repositories(first:100, after:$cursor, ownerAffiliations:[OWNER,COLLABORATOR,ORGANIZATION_MEMBER]){
       pageInfo{ hasNextPage endCursor }
-      nodes{ name isFork
+      nodes{ name nameWithOwner isFork owner{ login }
         languages(first:15, orderBy:{field:SIZE,direction:DESC}){ edges{ size node{ name color } } } } } } }"""
 
 
@@ -73,23 +75,32 @@ def collect(token):
         commits += c["totalCommitContributions"]
         prs += c["totalPullRequestContributions"]
 
-    sizes, colors, repos, cursor = {}, {}, 0, None
+    # repos = só os seus (igual ao contador do perfil, forks incluídos)
+    # linguagens = média entre os projetos, cada repo pesa igual (um repo enorme não domina)
+    shares, colors, repos, n_proj, cursor = {}, {}, 0, 0, None
     while True:
         r = gql(Q_REPOS, {"login": USER, "cursor": cursor}, token)["user"]["repositories"]
         for n in r["nodes"]:
+            own = n["owner"]["login"].lower() == USER.lower()
+            if own:
+                repos += 1
+            if not (own or n["nameWithOwner"] in EXTRA_REPOS):
+                continue
             if n["isFork"] and n["name"] not in INCLUDE_FORKS:
                 continue
-            repos += 1
-            for e in n["languages"]["edges"]:
+            edges = [e for e in n["languages"]["edges"] if e["node"]["name"] not in IGNORED_LANGS]
+            total_repo = sum(e["size"] for e in edges)
+            if not total_repo:
+                continue
+            n_proj += 1
+            for e in edges:
                 name = e["node"]["name"]
-                if name in IGNORED_LANGS:
-                    continue
-                sizes[name] = sizes.get(name, 0) + e["size"]
+                shares[name] = shares.get(name, 0) + e["size"] / total_repo
                 colors[name] = e["node"]["color"] or "#8b949e"
         if not r["pageInfo"]["hasNextPage"]:
             break
         cursor = r["pageInfo"]["endCursor"]
-
+    sizes = shares
     tot = sum(sizes.values()) or 1
     langs = sorted(([k, colors[k], v * 100 / tot] for k, v in sizes.items()), key=lambda x: -x[2])
     return {
@@ -136,7 +147,7 @@ def langs_card(d, limit=7):
         langs = langs + [["Outras", "#3b4058", rest]]
     out = [f'<rect x=".5" y=".5" width="{W-1}" height="{H-1}" rx="12" fill="{PANEL}" stroke="{BORDER}"/>',
            text(24, 38, "LINGUAGENS MAIS USADAS", 11.5, VIOLET, MONO, 700, "start", 'letter-spacing="2"'),
-           text(W - 24, 38, "por volume de código · inclui privados", 11.5, MUTED, MONO, 400, "end"),
+           text(W - 24, 38, "média entre os projetos · inclui privados", 11.5, MUTED, MONO, 400, "end"),
            f'<clipPath id="bar"><rect x="24" y="54" width="{W-48}" height="12" rx="6"/></clipPath>',
            f'<rect x="24" y="54" width="{W-48}" height="12" rx="6" fill="#1b1f2e"/>']
     x, bw = 24.0, W - 48
