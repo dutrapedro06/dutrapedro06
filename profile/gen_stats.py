@@ -22,7 +22,7 @@ INCLUDE_FORKS = {"LegixTech", "krilltech", "Rede-De-Computadores"}
 # Repositórios de outras pessoas em que você programa e que entram nas linguagens
 EXTRA_REPOS = {"LucasRD3105/Akto"}
 # Linguagens que só fazem barulho no gráfico
-IGNORED_LANGS = {"Jupyter Notebook", "TeX", "HTML", "CSS", "SCSS", "Dockerfile", "Shell", "Makefile",
+IGNORED_LANGS = {"Jupyter Notebook", "TeX", "Monkey C", "HTML", "CSS", "SCSS", "Dockerfile", "Shell", "Makefile",
                  "Procfile", "Batchfile", "PowerShell", "Mako", "PLpgSQL", "TSQL"}
 
 LANG_COLORS = {"TypeScript": "#3178c6", "Python": "#3572A5", "JavaScript": "#f1e05a", "C": "#a8b9cc",
