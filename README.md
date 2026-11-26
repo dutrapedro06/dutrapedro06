@@ -77,9 +77,8 @@
   <img src="profile/heatmap.svg" width="880" alt="Contribuições no último ano" />
 </p>
 <p align="center">
-  <a href="https://dutrapedro06.github.io/dutrapedro06/"><img src="profile/heatmap-3d.svg" width="880" alt="Contribuições no último ano em 3D: a altura de cada dia mostra quantas contribuições houve" /></a>
+  <img src="profile/heatmap-3d.svg" width="880" alt="Contribuições no último ano em 3D: a altura de cada dia mostra quantas contribuições houve" />
 </p>
-<p align="center"><sub>Clique no mapa 3D para abrir a versão interativa: arraste para girar e passe o mouse para ver cada dia.</sub></p>
 
 ## <img src="profile/title-contact.svg" width="880" alt="07 / Contato" />
 

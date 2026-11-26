@@ -338,11 +338,6 @@ def render(d):
     (OUT / "langs.svg").write_text(langs_card(d), encoding="utf-8")
     (OUT / "heatmap.svg").write_text(heatmap(d), encoding="utf-8")
     (OUT / "heatmap-3d.svg").write_text(heatmap_3d(d), encoding="utf-8")
-    # dados da página interativa (docs/index.html, servida pelo GitHub Pages)
-    days = [[day, cnt] for w in d["calendar"][-53:] for day, cnt in w]
-    (OUT.parent / "docs").mkdir(exist_ok=True)
-    (OUT.parent / "docs" / "data.json").write_text(
-        json.dumps({"total": d["last_year"], "days": days}, separators=(",", ":")), encoding="utf-8")
 
 
 if __name__ == "__main__":
