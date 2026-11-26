@@ -211,6 +211,11 @@ def heatmap(d):
     return svg(W, H, "\n".join(out), f"{d['last_year']} contribuições no último ano")
 
 
+def dia_br(iso):
+    """2026-10-26 -> 26/10/2026"""
+    return f"{iso[8:10]}/{iso[5:7]}/{iso[:4]}"
+
+
 def _shade(hex_color, f):
     """Escurece uma cor (#rrggbb) multiplicando os canais por f."""
     r, g, b = (int(hex_color[i:i + 2], 16) for i in (1, 3, 5))
@@ -279,7 +284,7 @@ def heatmap_3d(d):
         polys = [(top, c), (front, _shade(c, .62)), (side, _shade(c, .42))]
         if cnt == 0:
             out.append("<g>" + "".join(f'<polygon points="{p}" fill="{f}"/>' for p, f in polys)
-                       + f"<title>{day}: 0</title></g>")
+                       + f"<title>{dia_br(day)}: nenhuma contribuição</title></g>")
             continue
         flat = faces(wi, wd, 2.0)
         dl = 0.25 + wi * 0.03
@@ -288,7 +293,7 @@ def heatmap_3d(d):
             anim.append(f'<polygon points="{p}" fill="{f}"><animate attributeName="points" from="{p0}" to="{p}" '
                         f'dur=".6s" begin="{dl:.2f}s" fill="freeze" calcMode="spline" keySplines=".2 .8 .3 1" keyTimes="0;1"/></polygon>')
         out.append(f'<g opacity="0"><set attributeName="opacity" to="1" begin="{dl:.2f}s" fill="freeze"/>'
-                   f'{"".join(anim)}<title>{day}: {cnt}</title></g>')
+                   f'{"".join(anim)}<title>{dia_br(day)}: {cnt} contribuiç{"ão" if cnt == 1 else "ões"}</title></g>')
 
     # meses na borda da frente e dias da semana na lateral
     meses = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"]
@@ -302,18 +307,6 @@ def heatmap_3d(d):
     for i, lab in [(1, "seg"), (3, "qua"), (5, "sex")]:
         x, y = P(-.7, i + .5)
         out.append(text(round(x, 1), round(y + 4, 1), lab, 10.5, MUTED, MONO, 400, "end"))
-
-    # destaque do dia mais ativo
-    peak_day, peak = max(days, key=lambda x: x[1])
-    pw = next(i for i, w in enumerate(cal) if any(dd == peak_day for dd, _ in w))
-    pd = (date.fromisoformat(peak_day).weekday() + 1) % 7
-    px, py = P(pw + S / 2, pd + S / 2, 4 + ZMAX + 2)
-    dd_, mm_ = peak_day[8:10], meses[int(peak_day[5:7]) - 1]
-    out.append(f'<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur=".4s" begin="{0.9 + pw*0.03:.2f}s" fill="freeze"/>'
-               f'<path d="M{px:.1f} {py:.1f} V{py-22:.1f}" stroke="{VIOLET}" stroke-width="1" stroke-dasharray="2 3"/>'
-               f'<circle cx="{px:.1f}" cy="{py:.1f}" r="2.5" fill="{VIOLET}"/>'
-               + text(round(px, 1), round(py - 28, 1), f"{peak} em {dd_} {mm_}", 11.5, TEXT, MONO, 700, "middle")
-               + "</g>")
 
     # resumo no canto vazio (alto à direita)
     active = sum(1 for _, c in days if c)
@@ -345,6 +338,11 @@ def render(d):
     (OUT / "langs.svg").write_text(langs_card(d), encoding="utf-8")
     (OUT / "heatmap.svg").write_text(heatmap(d), encoding="utf-8")
     (OUT / "heatmap-3d.svg").write_text(heatmap_3d(d), encoding="utf-8")
+    # dados da página interativa (docs/index.html, servida pelo GitHub Pages)
+    days = [[day, cnt] for w in d["calendar"][-53:] for day, cnt in w]
+    (OUT.parent / "docs").mkdir(exist_ok=True)
+    (OUT.parent / "docs" / "data.json").write_text(
+        json.dumps({"total": d["last_year"], "days": days}, separators=(",", ":")), encoding="utf-8")
 
 
 if __name__ == "__main__":
