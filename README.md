@@ -76,6 +76,9 @@
 <p align="center">
   <img src="profile/heatmap.svg" width="880" alt="Contribuições no último ano" />
 </p>
+<p align="center">
+  <img src="profile/heatmap-3d.svg" width="880" alt="Contribuições no último ano em 3D: a altura de cada dia mostra quantas contribuições houve" />
+</p>
 
 ## <img src="profile/title-contact.svg" width="880" alt="07 / Contato" />
 

@@ -211,10 +211,140 @@ def heatmap(d):
     return svg(W, H, "\n".join(out), f"{d['last_year']} contribuições no último ano")
 
 
+def _shade(hex_color, f):
+    """Escurece uma cor (#rrggbb) multiplicando os canais por f."""
+    r, g, b = (int(hex_color[i:i + 2], 16) for i in (1, 3, 5))
+    return "#%02x%02x%02x" % tuple(max(0, min(255, int(c * f))) for c in (r, g, b))
+
+
+def heatmap_3d(d):
+    """Mesmo calendário do heatmap, com um terceiro eixo: a altura de cada dia
+    é proporcional à raiz das contribuições (a raiz evita que um dia atípico
+    achate todo o resto)."""
+    W, H = 880, 350
+    cal = d["calendar"][-53:]
+    days = [(day, cnt) for w in cal for day, cnt in w]
+    mx = max([c for _, c in days] + [1])
+
+    # projeção axonométrica: semanas andam para a direita, dias da semana para a frente
+    WX, WY = 13.6, 2.2      # vetor de 1 semana na tela
+    DX, DY = -8.0, 7.0      # vetor de 1 dia na tela
+    ZMAX = 92               # altura do dia mais ativo
+    S = 0.78                # tamanho do bloco dentro da célula (o resto é o vão)
+    ox, oy = 92, 150
+
+    def P(w, dd, z=0.0):
+        return ox + w * WX + dd * DX, oy + w * WY + dd * DY - z
+
+    def pts(*ps):
+        return " ".join(f"{x:.1f},{y:.1f}" for x, y in ps)
+
+    levels = ["#1b1f2e", "#3b2a6b", "#5b3fb0", "#8b6cf0", "#c4b5fd"]
+
+    def lvl(c):
+        if c == 0:
+            return 0
+        r = (c / mx) ** 0.5
+        return 1 if r <= .2 else 2 if r <= .4 else 3 if r <= .65 else 4
+
+    def faces(w, dd, h):
+        a, b = w, dd
+        top = pts(P(a, b, h), P(a + S, b, h), P(a + S, b + S, h), P(a, b + S, h))
+        front = pts(P(a, b + S, 0), P(a + S, b + S, 0), P(a + S, b + S, h), P(a, b + S, h))
+        side = pts(P(a + S, b, 0), P(a + S, b + S, 0), P(a + S, b + S, h), P(a + S, b, h))
+        return top, front, side
+
+    out = [f'<rect x=".5" y=".5" width="{W-1}" height="{H-1}" rx="12" fill="{PANEL}" stroke="{BORDER}"/>',
+           text(24, 38, "CONTRIBUIÇÕES NO ÚLTIMO ANO · 3D", 11.5, VIOLET, MONO, 700, "start", 'letter-spacing="2"'),
+           f'<text x="{W-24}" y="38" text-anchor="end" font-family="{MONO}" font-size="12.5">'
+           f'<tspan fill="{TEXT}" font-weight="700">{fmt(d["last_year"])}</tspan><tspan fill="{MUTED}"> contribuições</tspan></text>']
+
+    # chão: sombra suave sob a grade
+    n = len(cal)
+    out.append(f'<polygon points="{pts(P(-.3, -.3), P(n + .1, -.3), P(n + .1, 7.1), P(-.3, 7.1))}" '
+               f'fill="#0d0f16" stroke="{BORDER}" stroke-width="1"/>')
+
+    # ordem do pintor: de trás (w+d pequeno) para a frente
+    cells = []
+    for wi, week in enumerate(cal):
+        for day, cnt in week:
+            wd = (date.fromisoformat(day).weekday() + 1) % 7  # domingo = 0
+            cells.append((wi + wd, wi, wd, day, cnt))
+    cells.sort()
+
+    for _, wi, wd, day, cnt in cells:
+        c = levels[lvl(cnt)]
+        h = 2.0 if cnt == 0 else 4 + ZMAX * (cnt / mx) ** 0.5
+        top, front, side = faces(wi, wd, h)
+        polys = [(top, c), (front, _shade(c, .62)), (side, _shade(c, .42))]
+        if cnt == 0:
+            out.append("<g>" + "".join(f'<polygon points="{p}" fill="{f}"/>' for p, f in polys)
+                       + f"<title>{day}: 0</title></g>")
+            continue
+        flat = faces(wi, wd, 2.0)
+        dl = 0.25 + wi * 0.03
+        anim = []
+        for (p, f), p0 in zip(polys, flat):
+            anim.append(f'<polygon points="{p}" fill="{f}"><animate attributeName="points" from="{p0}" to="{p}" '
+                        f'dur=".6s" begin="{dl:.2f}s" fill="freeze" calcMode="spline" keySplines=".2 .8 .3 1" keyTimes="0;1"/></polygon>')
+        out.append(f'<g opacity="0"><set attributeName="opacity" to="1" begin="{dl:.2f}s" fill="freeze"/>'
+                   f'{"".join(anim)}<title>{day}: {cnt}</title></g>')
+
+    # meses na borda da frente e dias da semana na lateral
+    meses = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"]
+    last_m = None
+    for wi, week in enumerate(cal):
+        m = int(week[0][0][5:7])
+        if m != last_m and wi < n - 2:
+            x, y = P(wi, 7.9)
+            out.append(text(round(x, 1), round(y + 4, 1), meses[m - 1], 11, MUTED, MONO))
+            last_m = m
+    for i, lab in [(1, "seg"), (3, "qua"), (5, "sex")]:
+        x, y = P(-.7, i + .5)
+        out.append(text(round(x, 1), round(y + 4, 1), lab, 10.5, MUTED, MONO, 400, "end"))
+
+    # destaque do dia mais ativo
+    peak_day, peak = max(days, key=lambda x: x[1])
+    pw = next(i for i, w in enumerate(cal) if any(dd == peak_day for dd, _ in w))
+    pd = (date.fromisoformat(peak_day).weekday() + 1) % 7
+    px, py = P(pw + S / 2, pd + S / 2, 4 + ZMAX + 2)
+    dd_, mm_ = peak_day[8:10], meses[int(peak_day[5:7]) - 1]
+    out.append(f'<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur=".4s" begin="{0.9 + pw*0.03:.2f}s" fill="freeze"/>'
+               f'<path d="M{px:.1f} {py:.1f} V{py-22:.1f}" stroke="{VIOLET}" stroke-width="1" stroke-dasharray="2 3"/>'
+               f'<circle cx="{px:.1f}" cy="{py:.1f}" r="2.5" fill="{VIOLET}"/>'
+               + text(round(px, 1), round(py - 28, 1), f"{peak} em {dd_} {mm_}", 11.5, TEXT, MONO, 700, "middle")
+               + "</g>")
+
+    # resumo no canto vazio (alto à direita)
+    active = sum(1 for _, c in days if c)
+    best = cur = 0
+    for _, c in days:
+        cur = cur + 1 if c else 0
+        best = max(best, cur)
+    info = [(f"{active}", "dias ativos", CYAN), (f"{best} dias", "maior sequência", GREEN),
+            (f"{d['last_year'] / max(active, 1):.1f}".replace(".", ","), "média por dia ativo", VIOLET)]
+    for i, (num, lab, col) in enumerate(info):
+        x = 24 + i * 140
+        out.append(f'<rect x="{x}" y="58" width="18" height="3" rx="1.5" fill="{col}"/>'
+                   + text(x, 86, num, 20, TEXT, SANS, 800)
+                   + text(x, 103, lab, 10.5, MUTED, MONO))
+
+    # legenda: altura e cor
+    lx = W - 24 - 5 * 15 - 30
+    out.append(text(lx - 8, 86, "menos", 10.5, MUTED, MONO, 400, "end"))
+    for i, c in enumerate(levels):
+        hh = 3 + i * 3
+        out.append(f'<rect x="{lx + i*15}" y="{87-hh}" width="11" height="{hh}" rx="1.5" fill="{c}"/>')
+    out.append(text(lx + 5 * 15 + 4, 86, "mais", 10.5, MUTED, MONO))
+    out.append(text(W - 24, 103, "altura = contribuições do dia", 10.5, MUTED, MONO, 400, "end"))
+    return svg(W, H, "\n".join(out), f"{d['last_year']} contribuições no último ano, em 3D")
+
+
 def render(d):
     (OUT / "stats.svg").write_text(stats_card(d), encoding="utf-8")
     (OUT / "langs.svg").write_text(langs_card(d), encoding="utf-8")
     (OUT / "heatmap.svg").write_text(heatmap(d), encoding="utf-8")
+    (OUT / "heatmap-3d.svg").write_text(heatmap_3d(d), encoding="utf-8")
 
 
 if __name__ == "__main__":
